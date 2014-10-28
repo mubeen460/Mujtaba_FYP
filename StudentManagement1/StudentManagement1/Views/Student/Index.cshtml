@@ -1,0 +1,91 @@
+﻿@model IEnumerable<StudentManagement1.Student>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<h2> Search </h2>
+
+    @using (@Html.BeginForm("Index", "Student", FormMethod.Get))
+    {
+        <table >
+    <tr>
+        <th>
+           <span>Search By:</span>
+        </th>
+        <th> @Html.RadioButton("searchBy", "Name", true)Name</th>
+        <th> @Html.RadioButton("searchBy", "Student_Id")Student Id</th>
+        <th> @Html.RadioButton("searchBy", "Semester_No") Semester Name</th>
+       </tr>
+        </table> <br />
+
+         @Html.TextBox("search") <input type="submit" value="search" />
+       
+    }
+
+<table cellspacing = "5" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sur_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Degree.Degree_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semester.Semester_Name)
+        </th>
+ 
+         <th>Action</th>
+    </tr>
+@if (Model.Count() == 0)
+{
+    <tr>
+        <td colspan="4">
+            No records match search criteria
+        </td>
+    </tr>
+}
+else
+{
+    
+foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sur_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Degree.Degree_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semester.Semester_Name)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Student_Id }) |
+            @Html.ActionLink("Courses", "Index","StuCou", new {  id=item.Student_Id  },null) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Student_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Student_Id })
+        </td>
+    </tr>
+}
+}
+
+</table>

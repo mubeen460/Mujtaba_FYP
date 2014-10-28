@@ -1,0 +1,69 @@
+﻿@model StudentManagement1.Attendance
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Attendance</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Attendance_Id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Attendance_Id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Session.Course_Id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Session.Course_Id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Student.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Student.Password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Total_Present)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Total_Present)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Total_Absent)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Total_Absent)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Leaves)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Leaves)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

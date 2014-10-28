@@ -1,0 +1,88 @@
+﻿@model IEnumerable<StudentManagement1.Attendance>
+
+@{
+    ViewBag.Title = "EditSessions";
+     Layout = "~/Views/Shared/_TeacherLayout.phone.cshtml";
+}
+
+ <div class="header">    
+
+            <h1 class="page-title">View Session</h1>
+</div>
+
+<br />          
+   
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                              
+<div class="well">
+
+
+@using (Html.BeginForm("EditSessions", "Attendance", FormMethod.Post))
+{
+
+<table class="table">
+      <thead>
+    <tr>
+        <th>
+           <span> @Html.DisplayNameFor(model => model.Student_Id)</span>
+        </th>
+         <th>
+           <span> @Html.DisplayNameFor(model => model.Student.Name)</span>
+        </th>
+         <th>
+           <span> @Html.DisplayNameFor(model => model.Student.Sur_Name)</span>
+        </th>
+         <th>
+           <span> @Html.DisplayNameFor(model => model.Student.Semester.Semester_Name)</span>
+        </th>
+        <th>
+           <span> @Html.DisplayNameFor(model => model.Status)</span>
+        </th>
+    </tr>
+          </thead>
+
+    <tbody>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_Id)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Student.Name)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Student.Sur_Name)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Student.Semester.Semester_Name)
+        </td>
+        <td>          
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+    </tr>
+}
+
+ </tbody>
+    </table>
+}
+</div>
+            
+
+                    
+                    <footer>
+                        <hr>
+                        
+  <p @*style="margin-left: 403px;"*@>&copy; 2014 <a href="http://www.ntu.edu.pk" target="_blank">National Textile University</a></p>
+                    </footer>
+            </div>
+        </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+    
+
+

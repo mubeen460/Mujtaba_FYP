@@ -1,0 +1,71 @@
+﻿@model IEnumerable<StudentManagement1.Course>
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Add</h2>
+
+
+ @using (@Html.BeginForm("Add", "StuCou", FormMethod.Get))
+    {
+      @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true,""+ @ViewData["error"]+"");
+        <table >
+    <tr>
+        <th>
+           <span>Search By:</span>
+        </th>
+        <th> @Html.RadioButton("searchBy", "Name", true) Course Name</th>
+        <th> @Html.RadioButton("searchBy", "Course_Id") Course Id</th>
+        <th> @Html.RadioButton("searchBy", "Dept_Name") Department Name</th>
+       </tr>
+        </table> <br />
+
+         @Html.TextBox("search") <input type="submit" value="search" />
+       
+    }
+
+@using (Html.BeginForm("Add", "StuCou", FormMethod.Post))
+{
+    @Html.Hidden("Student_Id",ViewData["stid"])
+<table cellspacing = "10">
+    <tr>
+        <th>
+           Course Id
+        </th>
+        <th>
+            Course Name
+        </th>
+        <th>
+           Credit Hours
+        </th>
+        <th>
+           Dept Name
+        </th>
+        <th>
+            Select
+        </th>
+    </tr>
+
+    @if (Model.Count() == 0)
+{
+    <tr>
+        <td colspan="4">
+            No records match search criteria
+        </td>
+    </tr>
+}
+else
+{
+   
+ <tbody>
+        @Html.EditorForModel()
+</tbody>
+}
+
+</table>
+        <br /> <br />
+    <input type="submit" value="Add selected Courses" />
+}

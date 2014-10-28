@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobileAttendanceSystemDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MobileAttendanceSystemDBContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="MobileAttendanceSystemDBModel.Admin" />
+    <EntitySet Name="sysdiagrams" EntityType="MobileAttendanceSystemDBModel.sysdiagram" />
+    <EntitySet Name="Attendances" EntityType="MobileAttendanceSystemDBModel.Attendance" />
+    <EntitySet Name="Courses" EntityType="MobileAttendanceSystemDBModel.Course" />
+    <EntitySet Name="Degrees" EntityType="MobileAttendanceSystemDBModel.Degree" />
+    <EntitySet Name="Departments" EntityType="MobileAttendanceSystemDBModel.Department" />
+    <EntitySet Name="Sessions" EntityType="MobileAttendanceSystemDBModel.Session" />
+    <EntitySet Name="SessionTimes" EntityType="MobileAttendanceSystemDBModel.SessionTime" />
+    <EntitySet Name="Students" EntityType="MobileAttendanceSystemDBModel.Student" />
+    <EntitySet Name="StudentCourses" EntityType="MobileAttendanceSystemDBModel.StudentCourse" />
+    <EntitySet Name="Teachers" EntityType="MobileAttendanceSystemDBModel.Teacher" />
+    <EntitySet Name="TeacherCourseStudents" EntityType="MobileAttendanceSystemDBModel.TeacherCourseStudent" />
+    <AssociationSet Name="FK_tbl_Attendance_tbl_Session" Association="MobileAttendanceSystemDBModel.FK_tbl_Attendance_tbl_Session">
+      <End Role="tbl_Session" EntitySet="Sessions" />
+      <End Role="tbl_Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Attendance_tbl_Student" Association="MobileAttendanceSystemDBModel.FK_tbl_Attendance_tbl_Student">
+      <End Role="tbl_Student" EntitySet="Students" />
+      <End Role="tbl_Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Session_tbl_Course" Association="MobileAttendanceSystemDBModel.FK_tbl_Session_tbl_Course">
+      <End Role="tbl_Course" EntitySet="Courses" />
+      <End Role="tbl_Session" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Teacher_tbl_Department" Association="MobileAttendanceSystemDBModel.FK_tbl_Teacher_tbl_Department">
+      <End Role="tbl_Department" EntitySet="Departments" />
+      <End Role="tbl_Teacher" EntitySet="Teachers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Session_tbl_SessionTime" Association="MobileAttendanceSystemDBModel.FK_tbl_Session_tbl_SessionTime">
+      <End Role="tbl_SessionTime" EntitySet="SessionTimes" />
+      <End Role="tbl_Session" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Session_tbl_Teacher" Association="MobileAttendanceSystemDBModel.FK_tbl_Session_tbl_Teacher">
+      <End Role="tbl_Teacher" EntitySet="Teachers" />
+      <End Role="tbl_Session" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_StudentCourseSemester_tbl_Student" Association="MobileAttendanceSystemDBModel.FK_tbl_StudentCourseSemester_tbl_Student">
+      <End Role="tbl_Student" EntitySet="Students" />
+      <End Role="tbl_StudentCourse" EntitySet="StudentCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TeacherCourseSemeter_tbl_Student" Association="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourseSemeter_tbl_Student">
+      <End Role="tbl_Student" EntitySet="Students" />
+      <End Role="tbl_TeacherCourseStudent" EntitySet="TeacherCourseStudents" />
+    </AssociationSet>
+    <EntitySet Name="TeacherCourses" EntityType="MobileAttendanceSystemDBModel.TeacherCourse" />
+    <AssociationSet Name="FK_tbl_TeacherCourse_tbl_Course" Association="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourse_tbl_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="tbl_TeacherCourse" EntitySet="TeacherCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TeacherCourse_tbl_Teacher" Association="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourse_tbl_Teacher">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="tbl_TeacherCourse" EntitySet="TeacherCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TeacherCourseStudent_tbl_TeacherCourse" Association="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourseStudent_tbl_TeacherCourse">
+      <End Role="tbl_TeacherCourse" EntitySet="TeacherCourses" />
+      <End Role="TeacherCourseStudent" EntitySet="TeacherCourseStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_StudentCourseSemester_tbl_Course" Association="MobileAttendanceSystemDBModel.FK_tbl_StudentCourseSemester_tbl_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="StudentCourse" EntitySet="StudentCourses" />
+    </AssociationSet>
+    <EntitySet Name="StudentCreditHours" EntityType="MobileAttendanceSystemDBModel.StudentCreditHours" />
+    <EntitySet Name="TeacherCreditHours" EntityType="MobileAttendanceSystemDBModel.TeacherCreditHours" />
+    <AssociationSet Name="FK_tbl_StudentCreditHours_tbl_Student" Association="MobileAttendanceSystemDBModel.FK_tbl_StudentCreditHours_tbl_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="tbl_StudentCreditHours" EntitySet="StudentCreditHours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TeacherCreditHours_tbl_Teacher" Association="MobileAttendanceSystemDBModel.FK_tbl_TeacherCreditHours_tbl_Teacher">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="TeacherCreditHours" EntitySet="TeacherCreditHours" />
+    </AssociationSet>
+    <EntitySet Name="Semesters" EntityType="MobileAttendanceSystemDBModel.Semester" />
+    <AssociationSet Name="FK_tbl_Semester_tbl_Degree" Association="MobileAttendanceSystemDBModel.FK_tbl_Semester_tbl_Degree">
+      <End Role="Degree" EntitySet="Degrees" />
+      <End Role="tbl_Semester" EntitySet="Semesters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Student_tbl_Semester" Association="MobileAttendanceSystemDBModel.FK_tbl_Student_tbl_Semester">
+      <End Role="tbl_Semester" EntitySet="Semesters" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Course_tbl_Semester" Association="MobileAttendanceSystemDBModel.FK_tbl_Course_tbl_Semester">
+      <End Role="Semester" EntitySet="Semesters" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Course_tbl_Degree" Association="MobileAttendanceSystemDBModel.FK_tbl_Course_tbl_Degree">
+      <End Role="Degree" EntitySet="Degrees" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Degree_tbl_Department" Association="MobileAttendanceSystemDBModel.FK_tbl_Degree_tbl_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Degree" EntitySet="Degrees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Student_tbl_Degree" Association="MobileAttendanceSystemDBModel.FK_tbl_Student_tbl_Degree">
+      <End Role="Degree" EntitySet="Degrees" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="Guid" Nullable="false" />
+    <Property Name="User_Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Password_Salt" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="Attendance_Id" />
+    </Key>
+    <Property Name="Attendance_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Session_Id" Type="Int32" Nullable="false" />
+    <Property Name="Student_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Total_Present" Type="Int32" />
+    <Property Name="Total_Absent" Type="Int32" />
+    <Property Name="Leaves" Type="Int32" />
+    <NavigationProperty Name="Session" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Attendance_tbl_Session" FromRole="tbl_Attendance" ToRole="tbl_Session" />
+    <NavigationProperty Name="Student" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Attendance_tbl_Student" FromRole="tbl_Attendance" ToRole="tbl_Student" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Course_Id" />
+    </Key>
+    <Property Name="Course_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Course_Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Credit_Hours" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Session" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Session_tbl_Course" FromRole="tbl_Course" ToRole="tbl_Session" />
+    <NavigationProperty Name="TeacherCourse" Relationship="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourse_tbl_Course" FromRole="Course" ToRole="tbl_TeacherCourse" />
+    <NavigationProperty Name="StudentCourse" Relationship="MobileAttendanceSystemDBModel.FK_tbl_StudentCourseSemester_tbl_Course" FromRole="Course" ToRole="StudentCourse" />
+    <Property Type="Int32" Name="Semester_Id" Nullable="false" />
+    <NavigationProperty Name="Semester" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Course_tbl_Semester" FromRole="Course" ToRole="Semester" />
+    <Property Type="String" Name="Degree_Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Degree" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Course_tbl_Degree" FromRole="Course" ToRole="Degree" />
+  </EntityType>
+  <EntityType Name="Degree">
+    <Key>
+      <PropertyRef Name="Degree_Id" />
+    </Key>
+    <Property Name="Degree_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Degree_Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Semester" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Semester_tbl_Degree" FromRole="Degree" ToRole="tbl_Semester" />
+    <NavigationProperty Name="Course" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Course_tbl_Degree" FromRole="Degree" ToRole="Course" />
+    <Property Type="String" Name="Dept_Id" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Department" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Degree_tbl_Department" FromRole="Degree" ToRole="Department" />
+    <NavigationProperty Name="Student" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Student_tbl_Degree" FromRole="Degree" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Dept_Id" />
+    </Key>
+    <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Dept_Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Teacher" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Teacher_tbl_Department" FromRole="tbl_Department" ToRole="tbl_Teacher" />
+    <NavigationProperty Name="Degree" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Degree_tbl_Department" FromRole="Department" ToRole="Degree" />
+  </EntityType>
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="Session_Id" />
+    </Key>
+    <Property Name="Session_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Course_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Teacher_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SessionTime_Id" Type="Int32" Nullable="false" />
+    <Property Name="Total_Session" Type="Int32" />
+    <NavigationProperty Name="Attendance" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Attendance_tbl_Session" FromRole="tbl_Session" ToRole="tbl_Attendance" />
+    <NavigationProperty Name="Course" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Session_tbl_Course" FromRole="tbl_Session" ToRole="tbl_Course" />
+    <NavigationProperty Name="SessionTime" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Session_tbl_SessionTime" FromRole="tbl_Session" ToRole="tbl_SessionTime" />
+    <NavigationProperty Name="Teacher" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Session_tbl_Teacher" FromRole="tbl_Session" ToRole="tbl_Teacher" />
+  </EntityType>
+  <EntityType Name="SessionTime">
+    <Key>
+      <PropertyRef Name="SessionTime_Id" />
+    </Key>
+    <Property Name="SessionTime_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Session_Time" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Session" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Session_tbl_SessionTime" FromRole="tbl_SessionTime" ToRole="tbl_Session" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Student_Id" />
+    </Key>
+    <Property Name="Student_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Password_Salt" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Sur_Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Badge_No" Type="Int32" Nullable="false" />
+    <Property Name="Semester_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Attendance" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Attendance_tbl_Student" FromRole="tbl_Student" ToRole="tbl_Attendance" />
+    <NavigationProperty Name="StudentCourse" Relationship="MobileAttendanceSystemDBModel.FK_tbl_StudentCourseSemester_tbl_Student" FromRole="tbl_Student" ToRole="tbl_StudentCourse" />
+    <NavigationProperty Name="TeacherCourseStudent" Relationship="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourseSemeter_tbl_Student" FromRole="tbl_Student" ToRole="tbl_TeacherCourseStudent" />
+    <NavigationProperty Name="StudentCreditHours" Relationship="MobileAttendanceSystemDBModel.FK_tbl_StudentCreditHours_tbl_Student" FromRole="Student" ToRole="tbl_StudentCreditHours" />
+    <NavigationProperty Name="Semester" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Student_tbl_Semester" FromRole="Student" ToRole="tbl_Semester" />
+    <Property Type="String" Name="Degree_Id" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Degree" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Student_tbl_Degree" FromRole="Student" ToRole="Degree" />
+  </EntityType>
+  <EntityType Name="StudentCourse">
+    <Key>
+      <PropertyRef Name="StudentCourse_Id" />
+    </Key>
+    <Property Name="StudentCourse_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Student_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Course_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Student" Relationship="MobileAttendanceSystemDBModel.FK_tbl_StudentCourseSemester_tbl_Student" FromRole="tbl_StudentCourse" ToRole="tbl_Student" />
+    <NavigationProperty Name="Course" Relationship="MobileAttendanceSystemDBModel.FK_tbl_StudentCourseSemester_tbl_Course" FromRole="StudentCourse" ToRole="Course" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="Teacher_Id" />
+    </Key>
+    <Property Name="Teacher_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Password_Salt" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Sur_Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Designation" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Department" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Teacher_tbl_Department" FromRole="tbl_Teacher" ToRole="tbl_Department" />
+    <NavigationProperty Name="Session" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Session_tbl_Teacher" FromRole="tbl_Teacher" ToRole="tbl_Session" />
+    <NavigationProperty Name="TeacherCreditHours" Relationship="MobileAttendanceSystemDBModel.FK_tbl_TeacherCreditHours_tbl_Teacher" FromRole="Teacher" ToRole="TeacherCreditHours" />
+  </EntityType>
+  <EntityType Name="TeacherCourseStudent">
+    <Key>
+      <PropertyRef Name="TeacherCourseStudent_Id" />
+    </Key>
+    <Property Name="TeacherCourseStudent_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Student_Id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Student" Relationship="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourseSemeter_tbl_Student" FromRole="tbl_TeacherCourseStudent" ToRole="tbl_Student" />
+    <Property Type="Int32" Name="TeacherCourse_Id" Nullable="false" />
+    <NavigationProperty Name="TeacherCourse" Relationship="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourseStudent_tbl_TeacherCourse" FromRole="TeacherCourseStudent" ToRole="tbl_TeacherCourse" />
+  </EntityType>
+  <Association Name="FK_tbl_Attendance_tbl_Session">
+    <End Role="tbl_Session" Type="MobileAttendanceSystemDBModel.Session" Multiplicity="1" />
+    <End Role="tbl_Attendance" Type="MobileAttendanceSystemDBModel.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Session">
+        <PropertyRef Name="Session_Id" />
+      </Principal>
+      <Dependent Role="tbl_Attendance">
+        <PropertyRef Name="Session_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Attendance_tbl_Student">
+    <End Role="tbl_Student" Type="MobileAttendanceSystemDBModel.Student" Multiplicity="1" />
+    <End Role="tbl_Attendance" Type="MobileAttendanceSystemDBModel.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Student">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="tbl_Attendance">
+        <PropertyRef Name="Student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Session_tbl_Course">
+    <End Role="tbl_Course" Type="MobileAttendanceSystemDBModel.Course" Multiplicity="1" />
+    <End Role="tbl_Session" Type="MobileAttendanceSystemDBModel.Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Course">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="tbl_Session">
+        <PropertyRef Name="Course_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Teacher_tbl_Department">
+    <End Role="tbl_Department" Type="MobileAttendanceSystemDBModel.Department" Multiplicity="1" />
+    <End Role="tbl_Teacher" Type="MobileAttendanceSystemDBModel.Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Department">
+        <PropertyRef Name="Dept_Id" />
+      </Principal>
+      <Dependent Role="tbl_Teacher">
+        <PropertyRef Name="Dept_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Session_tbl_SessionTime">
+    <End Role="tbl_SessionTime" Type="MobileAttendanceSystemDBModel.SessionTime" Multiplicity="1" />
+    <End Role="tbl_Session" Type="MobileAttendanceSystemDBModel.Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_SessionTime">
+        <PropertyRef Name="SessionTime_Id" />
+      </Principal>
+      <Dependent Role="tbl_Session">
+        <PropertyRef Name="SessionTime_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Session_tbl_Teacher">
+    <End Role="tbl_Teacher" Type="MobileAttendanceSystemDBModel.Teacher" Multiplicity="1" />
+    <End Role="tbl_Session" Type="MobileAttendanceSystemDBModel.Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Teacher">
+        <PropertyRef Name="Teacher_Id" />
+      </Principal>
+      <Dependent Role="tbl_Session">
+        <PropertyRef Name="Teacher_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_StudentCourseSemester_tbl_Student">
+    <End Role="tbl_Student" Type="MobileAttendanceSystemDBModel.Student" Multiplicity="1" />
+    <End Role="tbl_StudentCourse" Type="MobileAttendanceSystemDBModel.StudentCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Student">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="tbl_StudentCourse">
+        <PropertyRef Name="Student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TeacherCourseSemeter_tbl_Student">
+    <End Role="tbl_Student" Type="MobileAttendanceSystemDBModel.Student" Multiplicity="1" />
+    <End Role="tbl_TeacherCourseStudent" Type="MobileAttendanceSystemDBModel.TeacherCourseStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Student">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="tbl_TeacherCourseStudent">
+        <PropertyRef Name="Student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TeacherCourse">
+    <Key>
+      <PropertyRef Name="TeacherCourse_Id" />
+    </Key>
+    <Property Type="Int32" Name="TeacherCourse_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Teacher_Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Course_Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Course" Relationship="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourse_tbl_Course" FromRole="tbl_TeacherCourse" ToRole="Course" />
+    <NavigationProperty Name="Teacher" Relationship="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourse_tbl_Teacher" FromRole="tbl_TeacherCourse" ToRole="Teacher" />
+    <NavigationProperty Name="TeacherCourseStudent" Relationship="MobileAttendanceSystemDBModel.FK_tbl_TeacherCourseStudent_tbl_TeacherCourse" FromRole="tbl_TeacherCourse" ToRole="TeacherCourseStudent" />
+  </EntityType>
+  <Association Name="FK_tbl_TeacherCourse_tbl_Course">
+    <End Type="MobileAttendanceSystemDBModel.Course" Role="Course" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.TeacherCourse" Role="tbl_TeacherCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="tbl_TeacherCourse">
+        <PropertyRef Name="Course_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TeacherCourse_tbl_Teacher">
+    <End Type="MobileAttendanceSystemDBModel.Teacher" Role="Teacher" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.TeacherCourse" Role="tbl_TeacherCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Teacher_Id" />
+      </Principal>
+      <Dependent Role="tbl_TeacherCourse">
+        <PropertyRef Name="Teacher_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TeacherCourseStudent_tbl_TeacherCourse">
+    <End Type="MobileAttendanceSystemDBModel.TeacherCourse" Role="tbl_TeacherCourse" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.TeacherCourseStudent" Role="TeacherCourseStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TeacherCourse">
+        <PropertyRef Name="TeacherCourse_Id" />
+      </Principal>
+      <Dependent Role="TeacherCourseStudent">
+        <PropertyRef Name="TeacherCourse_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_StudentCourseSemester_tbl_Course">
+    <End Type="MobileAttendanceSystemDBModel.Course" Role="Course" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.StudentCourse" Role="StudentCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Course_Id" />
+      </Principal>
+      <Dependent Role="StudentCourse">
+        <PropertyRef Name="Course_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="StudentCreditHours">
+    <Key>
+      <PropertyRef Name="StudentCreditHours_Id" />
+    </Key>
+    <Property Type="Int32" Name="StudentCreditHours_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Student_Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CreditHours" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="MobileAttendanceSystemDBModel.FK_tbl_StudentCreditHours_tbl_Student" FromRole="tbl_StudentCreditHours" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="TeacherCreditHours">
+    <Key>
+      <PropertyRef Name="TeacherCreditHours_Id" />
+    </Key>
+    <Property Type="Int32" Name="TeacherCreditHours_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Teacher_Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CreditHours" Nullable="false" />
+    <NavigationProperty Name="Teacher" Relationship="MobileAttendanceSystemDBModel.FK_tbl_TeacherCreditHours_tbl_Teacher" FromRole="TeacherCreditHours" ToRole="Teacher" />
+  </EntityType>
+  <Association Name="FK_tbl_StudentCreditHours_tbl_Student">
+    <End Type="MobileAttendanceSystemDBModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.StudentCreditHours" Role="tbl_StudentCreditHours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Student_Id" />
+      </Principal>
+      <Dependent Role="tbl_StudentCreditHours">
+        <PropertyRef Name="Student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TeacherCreditHours_tbl_Teacher">
+    <End Type="MobileAttendanceSystemDBModel.Teacher" Role="Teacher" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.TeacherCreditHours" Role="TeacherCreditHours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Teacher_Id" />
+      </Principal>
+      <Dependent Role="TeacherCreditHours">
+        <PropertyRef Name="Teacher_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Semester">
+    <Key>
+      <PropertyRef Name="Semester_Id" />
+    </Key>
+    <Property Type="Int32" Name="Semester_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Degree_Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Semester_Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Degree" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Semester_tbl_Degree" FromRole="tbl_Semester" ToRole="Degree" />
+    <NavigationProperty Name="Student" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Student_tbl_Semester" FromRole="tbl_Semester" ToRole="Student" />
+    <NavigationProperty Name="Course" Relationship="MobileAttendanceSystemDBModel.FK_tbl_Course_tbl_Semester" FromRole="Semester" ToRole="Course" />
+  </EntityType>
+  <Association Name="FK_tbl_Semester_tbl_Degree">
+    <End Type="MobileAttendanceSystemDBModel.Degree" Role="Degree" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.Semester" Role="tbl_Semester" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Degree">
+        <PropertyRef Name="Degree_Id" />
+      </Principal>
+      <Dependent Role="tbl_Semester">
+        <PropertyRef Name="Degree_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Student_tbl_Semester">
+    <End Type="MobileAttendanceSystemDBModel.Semester" Role="tbl_Semester" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Semester">
+        <PropertyRef Name="Semester_Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Semester_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Course_tbl_Semester">
+    <End Type="MobileAttendanceSystemDBModel.Semester" Role="Semester" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.Course" Role="Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Semester">
+        <PropertyRef Name="Semester_Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="Semester_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Course_tbl_Degree">
+    <End Type="MobileAttendanceSystemDBModel.Degree" Role="Degree" Multiplicity="1" />
+    <End Type="MobileAttendanceSystemDBModel.Course" Role="Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Degree">
+        <PropertyRef Name="Degree_Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="Degree_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Degree_tbl_Department">
+    <End Type="MobileAttendanceSystemDBModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="MobileAttendanceSystemDBModel.Degree" Role="Degree" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Dept_Id" />
+      </Principal>
+      <Dependent Role="Degree">
+        <PropertyRef Name="Dept_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Student_tbl_Degree">
+    <End Type="MobileAttendanceSystemDBModel.Degree" Role="Degree" Multiplicity="0..1" />
+    <End Type="MobileAttendanceSystemDBModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Degree">
+        <PropertyRef Name="Degree_Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Degree_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

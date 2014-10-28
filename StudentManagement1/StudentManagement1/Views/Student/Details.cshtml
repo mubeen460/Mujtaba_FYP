@@ -1,0 +1,66 @@
+﻿@model StudentManagement1.Student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Student</legend>
+
+    <div class="display-label">
+      <span> @Html.DisplayNameFor(model => model.Student_Id)</span>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Student_Id)
+    </div>
+
+    <div class="display-label">
+      <span> @Html.DisplayNameFor(model => model.Name)</span>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+        <span> @Html.DisplayNameFor(model => model.Sur_Name)</span>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sur_Name)
+    </div>
+
+    <div class="display-label">
+        <span> @Html.DisplayNameFor(model => model.email)</span>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email)
+    </div>
+
+    <div class="display-label">
+        <span> @Html.DisplayNameFor(model => model.Badge_No)</span>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Badge_No)
+    </div>
+
+     <div class="display-label">
+        <span> @Html.DisplayNameFor(model => model.Degree.Degree_Name)</span>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Degree.Degree_Name)
+    </div>
+
+    <div class="display-label">
+        <span> @Html.DisplayNameFor(model => model.Semester.Semester_Name)</span>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Semester.Semester_Name)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Student_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,115 @@
+﻿@model StudentManagement1.Student
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true,"Error! Check your details");
+
+    <fieldset>
+        <legend>Student</legend>
+
+       <div class="editor-label">
+            @Html.LabelFor(model => model.Student_Id)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayTextFor(model => model.Student_Id)
+        </div>
+        <br />
+        <br />
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.Student_Id)
+        </div>
+
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.Password)
+        </div>
+
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.Password_Salt)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <br />
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sur_Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sur_Name)
+            @Html.ValidationMessageFor(model => model.Sur_Name)
+        </div>
+
+        <br />
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.email)
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+
+        <br />
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Badge_No)
+        </div>
+        <div class="editor-field">
+           @Html.EditorFor(model => model.Badge_No)
+            @Html.ValidationMessageFor(model => model.Badge_No)
+        </div>
+
+
+        <br />
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Degree.Degree_Name, "Degree")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Degree_id", String.Empty)
+            @Html.ValidationMessageFor(model => model.Degree.Degree_Name)
+        </div>
+
+        <br />
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Semester.Semester_Name, "Semester")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Semester_id", String.Empty)
+            @Html.ValidationMessageFor(model => model.Semester.Semester_Name)
+        </div>
+
+
+        <br />
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
