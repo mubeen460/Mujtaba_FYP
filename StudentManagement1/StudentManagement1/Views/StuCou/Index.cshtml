@@ -1,0 +1,48 @@
+﻿@model IEnumerable<StudentManagement1.StudentCourse>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@Html.ActionLink("Add New", "Add", new { id = ViewData["stid"] })
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true,""+ @ViewData["error"]+"")
+
+<text> &nbsp &nbsp &nbsp &nbsp </text>
+ 
+<span>@ViewData["studentCreditHours"]</span>
+
+@using (Html.BeginForm("Index", "StuCou", FormMethod.Post))
+{
+    @Html.Hidden("Student_Id",ViewData["stid"])
+    
+<table cellspacing = "10">
+    <tr>
+        <th>
+           Course Id
+        </th>
+        <th>
+            Course Name
+        </th>
+        <th>
+           Credit Hours
+        </th>
+        <th>
+           Dept Name
+        </th>
+        <th>
+            Select
+        </th>
+    </tr>
+
+    <tbody>
+        @Html.EditorForModel()
+    </tbody>
+
+</table>
+   <br />
+    <input type="submit" value="Remove selected Courses" />
+}

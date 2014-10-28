@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MobileAttendanceSystemDBModelStoreContainer" CdmEntityContainer="MobileAttendanceSystemDBContext">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Password_Salt" ColumnName="Password_Salt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.Attendance">
+        <MappingFragment StoreEntitySet="tbl_Attendance">
+          <ScalarProperty Name="Attendance_Id" ColumnName="Attendance_Id" />
+          <ScalarProperty Name="Session_Id" ColumnName="Session_Id" />
+          <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Total_Present" ColumnName="Total_Present" />
+          <ScalarProperty Name="Total_Absent" ColumnName="Total_Absent" />
+          <ScalarProperty Name="Leaves" ColumnName="Leaves" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.Course">
+        <MappingFragment StoreEntitySet="tbl_Course">
+          <ScalarProperty Name="Degree_Id" ColumnName="Degree_Id" />
+          <ScalarProperty Name="Semester_Id" ColumnName="Semester_Id" />
+          <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+          <ScalarProperty Name="Credit_Hours" ColumnName="Credit_Hours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Degrees">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.Degree">
+        <MappingFragment StoreEntitySet="tbl_Degree">
+          <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+          <ScalarProperty Name="Degree_Id" ColumnName="Degree_Id" />
+          <ScalarProperty Name="Degree_Name" ColumnName="Degree_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.Department">
+        <MappingFragment StoreEntitySet="tbl_Department">
+          <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+          <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessions">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.Session">
+        <MappingFragment StoreEntitySet="tbl_Session">
+          <ScalarProperty Name="Session_Id" ColumnName="Session_Id" />
+          <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
+          <ScalarProperty Name="Teacher_Id" ColumnName="Teacher_Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SessionTime_Id" ColumnName="SessionTime_Id" />
+          <ScalarProperty Name="Total_Session" ColumnName="Total_Session" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SessionTimes">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.SessionTime">
+        <MappingFragment StoreEntitySet="tbl_SessionTime">
+          <ScalarProperty Name="SessionTime_Id" ColumnName="SessionTime_Id" />
+          <ScalarProperty Name="Session_Time" ColumnName="Session_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.Student">
+        <MappingFragment StoreEntitySet="tbl_Student">
+          <ScalarProperty Name="Degree_Id" ColumnName="Degree_Id" />
+          <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Password_Salt" ColumnName="Password_Salt" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sur_Name" ColumnName="Sur_Name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Badge_No" ColumnName="Badge_No" />
+          <ScalarProperty Name="Semester_Id" ColumnName="Semester_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentCourses">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.StudentCourse">
+        <MappingFragment StoreEntitySet="tbl_StudentCourse">
+          <ScalarProperty Name="StudentCourse_Id" ColumnName="StudentCourse_Id" />
+          <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+          <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.Teacher">
+        <MappingFragment StoreEntitySet="tbl_Teacher">
+          <ScalarProperty Name="Teacher_Id" ColumnName="Teacher_Id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Password_Salt" ColumnName="Password_Salt" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sur_Name" ColumnName="Sur_Name" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherCourseStudents">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.TeacherCourseStudent">
+        <MappingFragment StoreEntitySet="tbl_TeacherCourseStudent">
+          <ScalarProperty Name="TeacherCourse_Id" ColumnName="TeacherCourse_Id" />
+          <ScalarProperty Name="TeacherCourseStudent_Id" ColumnName="TeacherCourseStudent_Id" />
+          <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherCourses">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.TeacherCourse">
+        <MappingFragment StoreEntitySet="tbl_TeacherCourse">
+          <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
+          <ScalarProperty Name="Teacher_Id" ColumnName="Teacher_Id" />
+          <ScalarProperty Name="TeacherCourse_Id" ColumnName="TeacherCourse_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentCreditHours">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.StudentCreditHours">
+        <MappingFragment StoreEntitySet="tbl_StudentCreditHours">
+          <ScalarProperty Name="CreditHours" ColumnName="CreditHours" />
+          <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+          <ScalarProperty Name="StudentCreditHours_Id" ColumnName="StudentCreditHours_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherCreditHours">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.TeacherCreditHours">
+        <MappingFragment StoreEntitySet="tbl_TeacherCreditHours">
+          <ScalarProperty Name="CreditHours" ColumnName="CreditHours" />
+          <ScalarProperty Name="Teacher_Id" ColumnName="Teacher_Id" />
+          <ScalarProperty Name="TeacherCreditHours_Id" ColumnName="TeacherCreditHours_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semesters">
+      <EntityTypeMapping TypeName="MobileAttendanceSystemDBModel.Semester">
+        <MappingFragment StoreEntitySet="tbl_Semester">
+          <ScalarProperty Name="Semester_Name" ColumnName="Semester_Name" />
+          <ScalarProperty Name="Degree_Id" ColumnName="Degree_Id" />
+          <ScalarProperty Name="Semester_Id" ColumnName="Semester_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

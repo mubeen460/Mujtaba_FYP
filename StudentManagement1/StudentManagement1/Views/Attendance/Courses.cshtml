@@ -1,0 +1,78 @@
+﻿@model IEnumerable<StudentManagement1.TeacherCourse>
+@{
+    ViewBag.Title = "Courses";
+    Layout = "~/Views/Shared/_TeacherLayout.phone.cshtml";
+}
+
+ <div class="header">    
+
+            <h1 class="page-title">Courses</h1>
+</div>
+
+<br />          
+   
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                              
+<div class="well">
+     @Html.Hidden("teacherid",ViewData["teacherid"])
+    <table class="table">
+      <thead>
+        <tr>
+         <th>
+         @Html.DisplayNameFor(model => model.Course_Id)
+        </th>
+        <th>
+         @Html.DisplayNameFor(model => model.Course.Course_Name)
+        </th>
+        <th>
+         @Html.DisplayNameFor(model => model.Course.Credit_Hours)
+        </th>
+        <th>
+              Attendance
+        </th>
+          @*<th style="width: 26px;"></th>*@
+        </tr>
+      </thead>
+      <tbody>
+          @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course_Id)
+        </td>
+        <td>
+       
+            @Html.DisplayFor(modelItem => item.Course.Course_Name)
+        </td>
+        <td>
+       
+            @Html.DisplayFor(modelItem => item.Course.Credit_Hours)
+        </td>
+        <td>
+            @* <a href="@Url.Action("Mark", "MarkAttendance",new { id = item.Course_Id , teacherid = ViewData["teacherid"] }, null)" ><i class="icon-pencil"></i></a>
+          *@  @Html.ActionLink("Mark", "MarkAttendance","Attendance", new { id = item.Course_Id , teacherid = ViewData["teacherid"] } , null) |
+            @Html.ActionLink("View", "ViewAttendance","Attendance", new { id = item.Course_Id , teacherid = ViewData["teacherid"] } , null)
+        
+        </td>
+    </tr>
+}
+        
+      </tbody>
+    </table>
+
+</div>
+            
+
+                    
+                    <footer>
+                        <hr>
+                        
+  <p @*style="margin-left: 403px;"*@>&copy; 2014 <a href="http://www.ntu.edu.pk" target="_blank">National Textile University</a></p>
+                    </footer>
+            </div>
+        </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<StudentManagement1.Session>
+
+@{
+    ViewBag.Title = "EditSessions";
+   Layout = "~/Views/Shared/_TeacherLayout.phone.cshtml";
+}
+
+ <div class="header">    
+
+            <h1 class="page-title">Sessions</h1>
+</div>
+
+<br />          
+   
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                              
+<div class="well">
+
+ <table class="table">
+     <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+           @Html.DisplayNameFor(model => model.SessionTime.Session_Time)
+        </th>
+        
+         <th>Action</th>
+    </tr>
+         </thead>
+     <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Date.ToString("dd.MM.yyy")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SessionTime.Session_Time)
+        </td>
+        <td>
+            @Html.ActionLink("View", "EditSessions", new { id=item.Session_Id })
+        </td>
+    </tr>
+}
+         </tbody>
+</table>
+
+    </div>
+            
+
+                    
+                    <footer>
+                        <hr>
+                        
+  <p @*style="margin-left: 403px;"*@>&copy; 2014 <a href="http://www.ntu.edu.pk" target="_blank">National Textile University</a></p>
+                    </footer>
+            </div>
+        </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

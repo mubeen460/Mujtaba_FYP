@@ -1,0 +1,57 @@
+﻿@model StudentManagement1.TeacherCourseStudent
+@{
+    ViewBag.Title = "Attendance";
+}
+
+
+<tr>
+    
+    
+    <td>
+       @Model.Student_Id
+    </td>
+
+    <td>
+        @Model.Student.Name
+    </td>
+
+    <td>
+        @Model.Student.Sur_Name
+    </td>
+
+    <td>
+       @Model.Student.Semester.Semester_Name
+    </td>
+
+    <td>
+        <input type="checkbox" name="PresentStudents" id="PresentStudents" value="@Model.Student_Id" />
+    </td>
+
+   @* <td>
+    @Html.RadioButton(@Model.Student_Id.ToString(), "present", true)
+    </td>
+
+    <td>
+    @Html.RadioButton(@Model.Student_Id.ToString(), "absent")
+    </td>
+
+    <td>
+    @Html.RadioButton(@Model.Student_Id.ToString(), "leave")
+    </td>*@
+
+      @*<td>
+        <input type="radio" id ="present" name="@Model.Student_Id" value="@Model.Student_Id" checked="checked">
+      </td>
+
+      <td>
+        <input type="radio" id ="absent" name="@Model.Student_Id" value="@Model.Student_Id">
+      </td>
+
+    <td>
+        <input type="radio"  id ="leave" name="@Model.Student_Id" value="@Model.Student_Id">
+    </td>*@
+
+  
+
+</tr>
+

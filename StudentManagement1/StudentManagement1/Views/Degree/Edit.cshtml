@@ -1,0 +1,68 @@
+﻿@model StudentManagement1.Degree
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Degree</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Degree_Id)
+            
+        </div>
+
+         <div class="editor-field">
+             @Html.DisplayFor(model => model.Degree_Id)
+        </div>
+
+       
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.Degree_Id)
+        </div>
+
+        <br />
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Degree_Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Degree_Name)
+            @Html.ValidationMessageFor(model => model.Degree_Name)
+        </div>
+
+        
+        <br />
+        <br />
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Department.Dept_Name, "Department")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Dept_Id", String.Empty)
+            @Html.ValidationMessageFor(model => model.Dept_Id)
+        </div>
+
+        <br />
+        <br />
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

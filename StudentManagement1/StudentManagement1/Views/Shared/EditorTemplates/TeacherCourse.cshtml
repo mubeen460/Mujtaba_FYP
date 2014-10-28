@@ -1,0 +1,33 @@
+﻿@model StudentManagement1.TeacherCourse
+@{
+    ViewBag.Title = "Courses";
+}
+
+
+<tr>
+    
+   <td>
+       @Model.Course_Id
+    </td>
+
+    <td>
+        @Model.Course.Course_Name
+    </td>
+    <td>
+        @Model.Course.Credit_Hours
+    </td>
+    <td>
+       @Model.Course.Degree.Degree_Name
+    </td>
+
+    <td>
+        <input type="checkbox" name="courseIdsToRemove" id="courseIdsToRemove" value="@Model.Course_Id" />
+    </td>
+
+     <td>
+        @Html.ActionLink("Add", "AddStudents", new { id = Model.TeacherCourse_Id , courseid = Model.Course_Id }) |
+         @Html.ActionLink("Remove", "RemoveStudents", new {id = Model.TeacherCourse_Id })
+    </td>
+
+</tr>
+

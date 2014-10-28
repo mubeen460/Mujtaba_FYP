@@ -1,0 +1,32 @@
+﻿@model StudentManagement1.Course
+@{
+    ViewBag.Title = "Courses";
+}
+
+
+<tr>
+    
+    
+    <td>
+       @Model.Course_Id
+    </td>
+
+    <td>
+        @Model.Course_Name
+    </td>
+    <td>
+        @Model.Credit_Hours
+    </td>
+    <td>
+       @Model.Degree.Degree_Name
+    </td>
+    <td>
+       @Model.Semester.Semester_Name
+    </td>
+
+    <td>
+        <input type="checkbox" name="courseIdsToAdd" id="courseIdsToAdd" value="@Model.Course_Id" />
+    </td>
+
+</tr>
+

@@ -1,0 +1,28 @@
+﻿@model StudentManagement1.Student
+@{
+    ViewBag.Title = "Students";
+}
+
+
+<tr>
+    
+    <td>
+       @Model.Student_Id
+    </td>
+
+    <td>
+        @Model.Name
+    </td>
+    <td>
+        @Model.Sur_Name
+    </td>
+    <td>
+       @Model.Semester.Semester_Name
+    </td>
+
+    <td>
+        <input type="checkbox" name="studentIdsToAdd" id="StudentIdsToAdd" value="@Model.Student_Id" />
+    </td>
+
+</tr>
+

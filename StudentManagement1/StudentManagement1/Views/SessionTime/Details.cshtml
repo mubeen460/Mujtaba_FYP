@@ -1,0 +1,30 @@
+﻿@model StudentManagement1.SessionTime
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SessionTime</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SessionTime_Id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SessionTime_Id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Session_Time)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Session_Time)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id=Model.SessionTime_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

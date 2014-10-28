@@ -1,0 +1,183 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+     <title>@ViewBag.Title - Mobile Attendance System</title>
+     <meta name="keywords" content="" />
+     <meta name="description" content="" />
+  <link href="~/Content/themes/templatemo_style.css" rel="stylesheet" type="text/css" media="screen" />
+<script  lang="javascript" type="text/javascript">
+    function clearText(field) {
+        if (field.defaultValue == field.value) field.value = '';
+        else if (field.value == '') field.value = field.defaultValue;
+    }
+</script>
+</head>
+<body>
+
+<div id="templatemo_header">
+            
+    <div id="site_title">
+        
+        <a >Mobile Attendance System </a>
+        
+    </div> <!-- end of site_title -->
+    
+   <div id="header_right">
+  
+    
+   </div>
+    
+    <div class="cleaner"></div>
+    
+</div> <!-- end of header -->
+
+<div id="templatemo_menu_wrapper">
+	
+    <div id="templatemo_menu">
+        <ul>
+            <li><a href="@Url.Action("Index", "Department")" ><span></span>Departments</a></li>
+            <li><a href="@Url.Action("Index", "Teacher")"><span></span>Teachers</a></li>
+            <li><a href="@Url.Action("Index", "Degree")" ><span></span>Degrees</a></li>
+            <li><a href="@Url.Action("Index", "Semester")"><span></span>Semesters</a></li>
+            <li><a href="@Url.Action("Index", "Student")"><span></span>Students</a></li>
+            <li><a href="@Url.Action("Index", "Course")"><span></span>Courses</a></li>
+        </ul>    	
+	</div>
+</div> <!-- end of templatemo_menu -->
+
+
+<div id="templatemo_main"> <span class="tm_bottom"></span>
+	
+<div id="templatemo_content">
+    
+    	<div class="entry">
+                 @RenderSection("featured", required: false)
+                 @RenderBody()
+
+            	</div>
+  	    <br /> <br />  <br /> <br /> <br /> <br />  <br /> <br />
+        @*<div class="post_box pb_last">
+            <div class="header">
+                <h2><a href="#">Cum sociis natoque penatibus et magnis</a></h2>
+              <div class="tag"><strong>Tags:</strong> <a href="#">Photography</a>, <a href="#">Free Photos</a>, <a href="#">HDR</a></div>
+                <span class="posted_date">
+                    @DateTime.Today.Month/@DateTime.Now.Day                    
+                    <strong> @DateTime.Now.Year</strong>
+                </span>
+            </div>
+            <img src="/Images/templatemo_image_01.jpg" alt="image" />
+            <div class="pb_right">
+                <p>Praesent mattis varius quam. Vestibulum ullamcorper ipsum nec augue. Vestibulum auctor odio eget ante. Nunc commodo, magna pharetra semper vehicula, dui ligula feugiat elit, et euismod nunc orci ut libero. Etiam sodales massa vel metus. Mauris et elit quis mauris aliquet luctus.</p>
+                <div class="comment"><a href="#">64 comments</a></div>
+		  </div>
+            <div class="cleaner"></div>
+    </div>*@
+        
+        
+     
+
+    </div>
+    
+    <div id="templatemo_sidebar">
+    	<div class="sidebar_box">
+        	<h3>Profile</h3>
+            <div class="sb_content">
+                <ul class="sidebar_menu">
+            	<li><a href="@Url.Action("Logout", "AdminLogin")">Logout</a></li>
+                <li><a href="@Url.Action("ChangePassword", "AdminLogin")">Change Password</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="sidebar_box">
+        	<h3>Session Time</h3>
+            <div class="sb_content">
+            	<ul class="sidebar_menu">
+                    
+                    <li><a href ="@Url.Action("Index", "SessionTime")">Session Time</a></li>
+
+                </ul>
+            </div>
+        </div>
+        
+       @* <div class="sidebar_box">
+        	<h3>Archives</h3>*@
+            @*<div class="sb_content">
+            	<ul class="sidebar_menu">
+                    <li><a href="#">CSS Templates</a></li>
+                    <li><a href="#">Web Design Ideas</a></li>
+                    <li><a href="#">Free Wallpapers</a></li>
+                    <li><a href="#">Free Pixel Fonts</a></li>
+                    <li><a href="#">Illustrator Tutorials</a></li>
+                    <li><a href="#">3D Character Tutorials</a></li>
+                </ul>
+            </div>*@
+       @* </div>*@
+        
+        <div class="sidebar_box">
+        	@*<h3>Our Friends</h3>
+            <div class="sb_content">
+            	<ul class="sidebar_menu">
+                    <li><a href="#" target="_parent">Free Flash Files</a></li>
+                    <li><a href="#" target="_parent">Free CSS Templates</a></li>
+                    <li><a href="#" target="_blank">Web Design Tips</a></li>
+                    <li><a href="#" target="_blank">Flash XML Galleries</a></li>
+                    <li><a href="#" target="_blank">Inspiring Flash Websites</a></li>
+                </ul>
+            </div>*@
+        </div>
+    </div>
+    
+    <div class="cleaner"></div>
+</div> <!-- end of main -->
+
+<div id="templatmeo_bottom">
+	<div class="bottom_box">
+    	<h5><span>Sed Necest</span> Suspendisse a nibh</h5>
+        <p>Duis vitae velit sed dui malesuada dignissim. Donec mollis aliquet ligula. Maecenas adipiscing elementum ipsum.</p>
+		<a href="#" class="continue">more info</a>
+    </div>
+    
+    <div class="bottom_box">
+    	<h5><span>Lorem ipsum</span> dolor sit amet</h5>
+        <p>Vestibulum eleifend, enim ut molestie pulvinar, purus est fringilla augue, ut tristique nunc neque a libero.</p>
+		<a href="#" class="continue">more info</a>
+    </div>
+    
+    <div class="bottom_box">
+    	<h5><span>Recent</span> Blog Post</h5>
+       	<ul class="bottom_box_list">
+        	<li><a href="#">Duis vitae velit sed lesuada dignissim.</a></li>
+            <li><a href="#">Donec mollis aliquet ligula.</a></li>
+            <li><a href="#">Maecenas adipiscing elementum ipsum.</a></li>
+        </ul>
+    </div>
+
+</div> <!-- end of bottom -->
+
+<div id="templatemo_footer">
+
+	<ul class="footer_menu">
+        <li class="first"><a href="#">Home</a></li>
+        <li><a href="@Url.Action("Index", "Department")" >Departments</a></li>
+        <li><a href="@Url.Action("Index", "Teacher")">Teachers</a></li>
+        <li><a href="@Url.Action("Index", "Degree")" >Degrees</a></li>
+        <li><a href="@Url.Action("Index", "Semester")">Semesters</a></li>
+        <li><a href="@Url.Action("Index", "Student")">Students</a></li>
+        <li><a href="@Url.Action("Index", "Course")">Courses</a></li>
+	</ul>
+    
+	Copyright © 2012 <a href="#">NTU</a>
+@*<a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a></div>*@
+
+ @Scripts.Render("~/bundles/jquery")
+        @* @RenderSection("scripts", required: false) *@
+        @if (IsSectionDefined("scripts"))
+        {
+            @RenderSection("scripts")
+        }
+</body>
+</html>

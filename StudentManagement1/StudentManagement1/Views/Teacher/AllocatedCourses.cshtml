@@ -1,0 +1,51 @@
+﻿@model IEnumerable<StudentManagement1.TeacherCourse>
+
+@{
+    ViewBag.Title = "AllocatedCourses";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@Html.ActionLink("Add New", "AddCourses", new { id = ViewData["teacherid"] })
+
+     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true,""+ @ViewData["error"]+"")
+
+<text> &nbsp &nbsp &nbsp &nbsp </text>
+ 
+<span>@ViewData["teacherCreditHours"]</span>
+
+@using (Html.BeginForm("AllocatedCourses", "Teacher", FormMethod.Post))
+{ 
+    @Html.Hidden("teacherid",ViewData["teacherid"])
+    
+<table cellspacing = "10">
+    <tr>
+        <th>
+           Course Id
+        </th>
+        <th>
+            Course Name
+        </th>
+        <th>
+           Credit Hours
+        </th>
+        <th>
+           Degree Name
+        </th>
+        <th>
+            Select
+        </th>
+         <th>
+            Students
+        </th>
+    </tr>
+
+    <tbody>
+        @Html.EditorForModel()
+    </tbody>
+
+</table>
+    <br /> <br />
+    <input type="submit" value="Remove selected Courses" />
+}

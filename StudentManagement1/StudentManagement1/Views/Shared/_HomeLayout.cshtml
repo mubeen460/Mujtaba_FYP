@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Mobile Attendance System</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="~/Content/themes/templatemo_style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script lang="javascript" type="text/javascript">
+        function clearText(field) {
+            if (field.defaultValue == field.value) field.value = '';
+            else if (field.value == '') field.value = field.defaultValue;
+        }
+    </script>
+
+    @*image slider part*@
+
+    <link href="~/Content/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/js-image-slider.js" type="text/javascript"></script>
+    <link href="~/Content/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/tooltip.js" type="text/javascript"></script>
+     <script type="text/javascript">
+        imageSlider.thumbnailPreview(function (thumbIndex) { return "<img src='images/thumb" + (thumbIndex + 1) + ".jpg' style='width:100px;height:55px;' />"; });
+    </script>
+
+</head>
+<body>
+
+    <div id="templatemo_header">
+
+        <div id="site_title">
+
+            <a>Mobile Attendance System </a>
+            
+        </div>
+        <!-- end of site_title -->
+
+       <div id="header_right">
+           @*<a href="#"><img src="images/templatemo_twitter.png" alt="twitter" /></a><a href="#"><img src="images/templatemo_rss.png" alt="rss" /></a>
+     *@   <div id="newsletter_box">
+       	  
+         <a href="@Url.Action("Index", "Attendance")"><img src="images/login-button-png-hi.png" alt="twitter" /></a>
+        </div>
+    
+   </div>
+
+        <div class="cleaner"></div>
+
+    </div>
+    <!-- end of header -->
+
+    <div id="templatemo_main">
+
+        <br /><br />
+                   @* Start Image SLIDER*@
+
+        <div id="sliderFrame">
+        <div id="slider">
+   <img src="~/Content/themes/images/1.jpg" alt="#cap1" />
+           
+            <img src="~/Content/themes/images/2.jpg"/>
+	    <img src="~/Content/themes/images/3.jpg"/>
+	    <img src="~/Content/themes/images/4.jpg" />
+            <img src="~/Content/themes/images/5.jpg"/>
+
+	          </div>
+      </div>
+       
+         @* end Image SLIDER*@
+
+
+        <span class="tm_bottom"></span>
+
+      
+
+            <div class="entry">
+
+      
+                @RenderSection("featured", required: false)
+                @RenderBody()
+                <br />
+            </div>
+         
+           
+            <div class="cleaner"></div>
+
+@* <div id="templatemo_homecontent">*@
+
+        @*Rector Message*@
+
+@*         <div class="post_box">
+            <div class="header">
+                <h2>Mission Statement</h2>
+            </div>
+            <div class="pb_right">
+                           
+                 <p>  The aim is to develop the Textile Industry and Human Resources of Pakistan and make Pakistan an active player in the world economy.</p> <br />
+
+                <ul class="post_box_list">
+<li>NTU is committed to information revolution in every aspect of its activities.</li> 
+<li>NTU will continue to strengthen its profile as a high standard University.</li>
+<li>NTU aims to collaborate with industry; produce high quality research and provide excellent educational services within the field of its mission.</li>
+<li>NTU is committed to launching and establishing facilities for postgraduate studies in textile and allied fields.</li>
+                    </ul> <br />
+<span>NTU</span> upholds TRUTH, LAW and JUSTICE in all kinds of situations and in all spheres of its activities. <br />
+
+<span>NTU</span> is committed to decisions based solely on MERIT. This criterion applies to all aspects of its operations, from Selection and evaluation of its faculty, staff and students. All programs of the university strictly adhere to this core philosophy.<br />
+
+<span>NTU</span>  programs are designed so that every activity enhances student learning, individual development, ability to think analytically and problem solving approach.<br />
+
+<span>NTU</span>  considers character building to be an integral aspect of its programs, as learning without personal integrity will be of little value to an individual and society. Through out their studies, students are encouraged to develop a sense of creativity, independent critical analysis and research techniques.
+
+                       
+            </div>
+            <div class="cleaner"></div>
+    </div>
+
+
+     </div>*@
+
+    @*</div>*@
+    <!-- end of main -->
+
+    <div id="templatmeo_bottom" style = "margin-left: -30px;">
+        <div class="bottom_box">
+            <h5><span>About Us</span></h5>
+            <p>Duis vitae velit sed dui malesuada dignissim. Donec mollis aliquet ligula. Maecenas adipiscing elementum ipsum.</p>
+            @*<a href="#" class="continue">more info</a>*@
+        </div>
+
+        <div class="bottom_box">
+            <h5><span>Contact US</span></h5>
+            <p>Vestibulum eleifend, enim ut molestie pulvinar, purus est fringilla augue, ut tristique nunc neque a libero.</p>
+            
+        </div>
+ 
+        <div class="bottom_box">
+            <h5><span>Administration</span></h5>
+            <ul class="bottom_box_list">
+                <li><a  href="@Url.Action("Index", "AdminLogin")">Admin Login</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- end of bottom -->
+
+    <div id="templatemo_footer">
+
+        Copyright © 2014 <a href="http://ntu.edu.pk/index.php">NTU</a>
+    @*<a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a></div>*@
+        </div>
+    @Scripts.Render("~/bundles/jquery")
+    @* @RenderSection("scripts", required: false) *@
+    @if (IsSectionDefined("scripts"))
+    {
+        @RenderSection("scripts")
+        }
+</body>
+</html>
