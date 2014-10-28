@@ -1,5 +1,0 @@
-C:\Users\Ahmad Mujtaba\documents\visual studio 2012\Projects\StudentManagement1\BusinessLayer\bin\Debug\BusinessLayer.dll
-C:\Users\Ahmad Mujtaba\documents\visual studio 2012\Projects\StudentManagement1\BusinessLayer\bin\Debug\BusinessLayer.pdb
-C:\Users\Ahmad Mujtaba\documents\visual studio 2012\Projects\StudentManagement1\BusinessLayer\obj\Debug\BusinessLayer.dll
-C:\Users\Ahmad Mujtaba\documents\visual studio 2012\Projects\StudentManagement1\BusinessLayer\obj\Debug\BusinessLayer.pdb
-C:\Users\Ahmad Mujtaba\documents\visual studio 2012\Projects\StudentManagement1\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
